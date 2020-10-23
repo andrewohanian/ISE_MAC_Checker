@@ -43,5 +43,5 @@ def send(result=result):
         return render_template('home.html', result='Failed MAC formatting check. Please format MAC as 01:23:45:67:89:AB', return_error=True)
     
 if __name__ == '__main__':
-    app.run(host=0.0.0.0, port=5000)
+    app.run(host='0.0.0.0', port=5000)
 
