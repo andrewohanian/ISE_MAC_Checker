@@ -4,6 +4,7 @@ requests.packages.urllib3.disable_warnings()
 
 username = 'admin'
 password = 'password'
+base_url = 'https://ise.mydomain.com:9060/ers/config'
 auth = (username, password)
 headers = {'Accept': 'application/json'}
 
@@ -12,7 +13,7 @@ def get_rejected_endpoints():
     Returns a list of all currently rejected endpoints
     '''
 
-    url = f'https://ise.ngic.com:9060/ers/config/endpoint/getrejectedendpoints'
+    url = f'{base_url}/endpoint/getrejectedendpoints'
 
     response = requests.request("GET", url, auth = auth, headers=headers, verify=False)
     result = json.loads(response.text)
@@ -26,7 +27,7 @@ def get_endpoints(mac):
     on the MAC
     '''
 
-    url = f'https://ise.ngic.com:9060/ers/config/endpoint?filter=mac.EQ.{mac}'
+    url = f'{base_url}/endpoint?filter=mac.EQ.{mac}'
 	
     response = requests.request("GET", url, auth = auth, headers=headers, verify=False)
 
@@ -52,7 +53,7 @@ def get_group(group_id):
     Returns the name of the endpoint group
     '''
 
-    url = f"https://ise.ngic.com:9060/ers/config/endpointgroup/{group_id}"
+    url = f'{base_url}/endpointgroup/{group_id}'
 
     response = requests.request("GET", url, auth = auth, headers=headers, verify=False)
 
