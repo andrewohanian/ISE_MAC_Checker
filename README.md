@@ -1,5 +1,5 @@
 # ISE_MAC_Checker
-Web-based Tool to Verify Whether MAC Addresses Exist in the ISE Database
+Web-based tool to verify whether MAC addresses exist in the ISE database
 
 ## Installation
 * Clone the repo on your webserver or localhost
