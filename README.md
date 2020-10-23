@@ -5,7 +5,7 @@ Web-based Tool to Verify Whether MAC Addresses Exist in the ISE Database
 * Clone the repo on your webserver or localhost
     * ```git clone https://github.com/andrewohanian/ISE_MAC_Checker.git```
 * Change directory and install requirements
-    * ```cd ISE_MAC_Checker
+    * ```cd ISE_MAC_Checker```
     * ```pip install -r requirements.txt```
 ## Quick-start
 * Open ise_mac_search.py, and edit the username, password, and base_url
