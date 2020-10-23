@@ -3,7 +3,9 @@ from ise_mac_search import get_endpoints, get_group_id, get_group, get_rejected_
 import re
 
 app = Flask(__name__)
-result=''
+#result=''
+approved_groups = ['Phones', 'Printers', 'Video_Camers', 'IoT']
+
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -28,7 +30,6 @@ def send(result=result):
         if endpoint_link:
             group_id = get_group_id(endpoint_link)
             group_name = get_group(group_id)
-            approved_groups = ['Phones', 'Printers', 'Video_Camers', 'IoT']
 
             if group_name not in approved_groups:
                 return render_template('home.html', result=f'No match for [{mac}]. Please submit a ticket to add it to the database of approved devices.')
