@@ -27,14 +27,18 @@
         <label for="MAC Address">MAC Address (format as 01:23:34:56:78:9A)</label>
         <input
           type="text"
-          placeholder="01:23:34:56:78:9A"
+          placeholder="01:23:45:67:89:AB"
           class="u-full-width"
           name="mac"
         />
         <input type="submit" value="Check" id="calc_btn" />
         <br />
         <div class="alert">
-          <b>{{ result }}</b>
+		  {% if return_error is true %}
+			<p style="color:red"><b>{{ result }}</b></p>
+		  {% else %}
+			<b>{{ result }}</b>
+		  {% endif %}
         </div>
       </form>
     <!-- Optional JavaScript -->

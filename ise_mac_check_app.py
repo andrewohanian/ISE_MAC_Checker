@@ -19,7 +19,7 @@ def send(result=result):
         #Check if MAC is rejected first
         rejected_endpoints = get_rejected_endpoints()
         if mac in rejected_endpoints:
-            return render_template('fail.html', result=f'MAC {mac} is currenty in a rejected state.')
+            return render_template('home.html', result=f'MAC {mac} is currenty in a rejected state.', return_error=True)
 
         #If MAC is not rejected, check if it exists in an approved group
         else:
@@ -40,7 +40,7 @@ def send(result=result):
             print(f"No match for {mac}")
             return render_template('home.html', result=f'No match for [{mac}]. Please submit a HEAT ticket to add it to the database of approved devices.')
     else:
-        return render_template('fail.html', result='Failed MAC formatting check. Please format MAC as 01:23:45:67:89:AB')
+        return render_template('home.html', result='Failed MAC formatting check. Please format MAC as 01:23:45:67:89:AB', return_error=True)
     
 if __name__ == '__main__':
     app.run(host=0.0.0.0, port=5000)
