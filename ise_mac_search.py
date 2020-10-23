@@ -8,9 +8,9 @@ auth = (username, password)
 headers = {'Accept': 'application/json'}
 
 def get_rejected_endpoints():
-	'''
-	Returns a list of all currently rejected endpoints
-	'''
+    '''
+    Returns a list of all currently rejected endpoints
+    '''
 
     url = f'https://ise.ngic.com:9060/ers/config/endpoint/getrejectedendpoints'
 
@@ -21,10 +21,10 @@ def get_rejected_endpoints():
     
 
 def get_endpoints(mac):
-	'''
-	Returns the link to the endpoint object of interest, by searching all endpoints and filtering 
-	on the MAC
-	'''
+    '''
+    Returns the link to the endpoint object of interest, by searching all endpoints and filtering 
+    on the MAC
+    '''
 
     url = f'https://ise.ngic.com:9060/ers/config/endpoint?filter=mac.EQ.{mac}'
 	
@@ -37,9 +37,9 @@ def get_endpoints(mac):
         return False
 
 def get_group_id(url):
-	'''
-	Returns the group ID the endpoint belongs to
-	'''
+    '''
+    Returns the group ID the endpoint belongs to
+    '''
 
     response = requests.request("GET", url, auth = auth, headers=headers, verify=False)
 
@@ -48,9 +48,9 @@ def get_group_id(url):
 
 
 def get_group(group_id):
-	'''
-	Returns the name of the endpoint group
-	'''
+    '''
+    Returns the name of the endpoint group
+    '''
 
     url = f"https://ise.ngic.com:9060/ers/config/endpointgroup/{group_id}"
 
